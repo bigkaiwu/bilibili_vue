@@ -1,21 +1,15 @@
 <!-- 注册页面  -->
 <template>
   <div>
-      <login-top middleTop="注册Bilibili">
+      <login-top middleTop="登录Bilibili">
           <div  slot="right" 
                 class="loginTopFt" 
                 style="font-size:3.611vw" 
-                @click="$router.push('/login')">去登录</div>
+                @click="$router.push('/register')">去注册</div>
       </login-top>
       <login-text
-        class="firstInput"
-        label="姓名"
-        placeholder="请输入姓名"
-        rule="^.{6,16}$"
-        @inputChange = "res => model.name = res"
-        />
-      <login-text
         label="账号"
+        class="firstInput"
         placeholder="请输入账号"
         rule="^.{6,16}$"
         @inputChange = "res => model.username = res"
@@ -28,7 +22,7 @@
         @inputChange = "res => model.password = res"
         />
       <login-btn
-        btext="注册"
+        btext="登录"
         @registerSubmit = "registerSubmit"
         />
   </div>
@@ -48,7 +42,6 @@ export default {
   data(){
       return{
           model:{
-            name:'',
             username:'',
             password:''
           }
@@ -57,7 +50,7 @@ export default {
   methods:{
       async registerSubmit(){
           let rulg = /^.{6,16}$/
-          if(rulg.test(this.model.name) && rulg.test(this.model.username) && rulg.test(this.model.password)){
+          if(rulg.test(this.model.username) && rulg.test(this.model.password)){
             const res = await this.$http.post('/register',this.model)
             this.$msg.fail(res.data.msg)
           }else{

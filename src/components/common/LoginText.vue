@@ -1,7 +1,7 @@
 <!-- 登录注册 输入框 -->
 <template>
   <div>
-     <van-field v-model="text" 
+     <van-field v-model="inputText" 
         :label="label" 
         :placeholder="placeholder" 
         :type="type" 
@@ -15,8 +15,21 @@ export default {
   props:['label','placeholder','type','rule'],
   data(){
       return{
-          text:''
+          inputText:''
       }
+  },
+  methods:{
+    handleRule(){
+      const rul = new RegExp(this.rule);
+      if(rul.test(this.inputText)){
+        this.$emit('inputChange',this.inputText);
+      }
+    }
+  },
+  watch:{
+    inputText(){
+      this.handleRule();
+    }
   }
 }
 

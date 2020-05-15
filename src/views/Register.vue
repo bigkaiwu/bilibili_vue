@@ -6,18 +6,24 @@
         class="firstInput"
         label="姓名"
         placeholder="请输入姓名"
-        rule="^.{4,16}$"
+        rule="^.{6,16}$"
+        @inputChange = "res => name = res"
         />
       <login-text
         label="账号"
         placeholder="请输入账号"
-        rule="^.{4,16}$"
+        rule="^.{6,16}$"
+        @inputChange = "res => username = res"
         />
       <login-text
         label="密码"
         placeholder="请输入密码"
         type="password"
-        rule="^.{4,16}$"
+        rule="^.{6,16}$"
+        @inputChange = "res => password = res"
+        />
+      <login-btn
+        btext="注册"
         />
   </div>
 </template>
@@ -25,11 +31,20 @@
 <script>
 import LoginTop from '@/components/common/LoginTop.vue'
 import LoginText from '@/components/common/LoginText.vue'
+import LoginBtn from '@/components/common/LoginBtn.vue'
 
 export default {
   components: {
       LoginTop,
-      LoginText
+      LoginText,
+      LoginBtn
+  },
+  data(){
+      return{
+          name:'',
+          username:'',
+          password:''
+      }
   }
 }
 

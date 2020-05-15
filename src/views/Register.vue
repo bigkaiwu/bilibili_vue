@@ -7,23 +7,24 @@
         label="姓名"
         placeholder="请输入姓名"
         rule="^.{6,16}$"
-        @inputChange = "res => name = res"
+        @inputChange = "res => model.name = res"
         />
       <login-text
         label="账号"
         placeholder="请输入账号"
         rule="^.{6,16}$"
-        @inputChange = "res => username = res"
+        @inputChange = "res => model.username = res"
         />
       <login-text
         label="密码"
         placeholder="请输入密码"
         type="password"
         rule="^.{6,16}$"
-        @inputChange = "res => password = res"
+        @inputChange = "res => model.password = res"
         />
       <login-btn
         btext="注册"
+        @registerSubmit = "registerSubmit"
         />
   </div>
 </template>
@@ -41,9 +42,22 @@ export default {
   },
   data(){
       return{
-          name:'',
-          username:'',
-          password:''
+          model:{
+            name:'',
+            username:'',
+            password:''
+          }
+      }
+  },
+  methods:{
+      async registerSubmit(){
+          let rulg = /^.{6,16}$/
+          if(rulg.test(this.model.name) && rulg.test(this.model.username) && rulg.test(this.model.password)){
+            const res = await this.$http.post('/register',this.model)
+            this.$msg.fail(res.data.msg)
+          }else{
+              this.$msg.fail('输入的格式不正确，请重新输入')
+          }
       }
   }
 }

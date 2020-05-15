@@ -1,13 +1,18 @@
 <!-- 登录注册 按钮 -->
 <template>
   <div class="btnParent">
-      <div class="loginBtn">{{btext}}</div>
+      <div class="loginBtn" @click="registerClick">{{btext}}</div>
   </div>
 </template>
 
 <script>
 export default {
-    props:['btext']
+    props:['btext'],
+    methods:{
+        registerClick(){
+            this.$emit("registerSubmit")
+        }
+    }
 }
 
 </script>

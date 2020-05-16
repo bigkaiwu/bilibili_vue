@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Register from '@/views/Register.vue'
 import Login from '@/views/Login.vue'
 import Userinfo from '@/views/Userinfo'
+import Edit from '@/views/Edit'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,14 @@ Vue.use(VueRouter)
     name: 'Userinfo',
     component: Userinfo,
     meta:{
+      istoken: true
+    }
+  },
+  {
+    path:'/edit',
+    name:'Edit',
+    component:Edit,
+    meta: {
       istoken: true
     }
   }

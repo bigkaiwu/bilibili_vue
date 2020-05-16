@@ -3,7 +3,8 @@
   <div class="userDetail">
     <div>
       <div class="user_img">
-        <img src="@/assets/head_img.jpg" alt />
+        <img :src="userinfo.user_img" v-if="userinfo.user_img" alt />
+        <img src="@/assets/default_img.jpg" v-else alt />
       </div>
       <div class="user_edit">
         <div>
@@ -26,17 +27,16 @@
       </div>
     </div>
     <div>
-        <h2>USERNAME</h2>
-        <p>这个人很神秘，什么都没有写...</p>
+        <h2>{{ userinfo.name }}</h2>
+        <p v-if="userinfo.user_desc">{{ userinfo.user_desc }}</p>
+        <p v-else>这个人很神秘，什么都没有写...</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  }
+  props:['userinfo']
 };
 </script>
 <style scoped lang="scss">

@@ -51,8 +51,16 @@ export default {
       async registerSubmit(){
           let rulg = /^.{6,16}$/
           if(rulg.test(this.model.username) && rulg.test(this.model.password)){
-            const res = await this.$http.post('/register',this.model)
+            const res = await this.$http.post('/login',this.model)
             this.$msg.fail(res.data.msg)
+            if(res.data.code === 301 || res.data.code === 302){
+              return
+            }
+            localStorage.setItem('id',res.data.id)
+            localStorage.setItem('token',res.data.token)
+            setTimeout(() => {
+              this.$router.push('/userinfo')
+            }, 1000);
           }else{
               this.$msg.fail('输入的格式不正确，请重新输入')
           }

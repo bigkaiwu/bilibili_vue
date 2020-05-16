@@ -2,9 +2,9 @@
 <template>
   <div>
       <navbar></navbar>
-      <img class="banner" src="@/assets/bannerTop_new.png" alt="">
-      <userdetail></userdetail>
-      <userarticle></userarticle>
+      <img  class="banner" src="@/assets/bannerTop_new.png" alt="">
+      <userdetail :userinfo="model"/>
+      <userarticle />
   </div>
 </template>
 
@@ -19,13 +19,26 @@ export default {
       Userdetail,
       Userarticle
   },
+  data(){
+      return{
+          model:{}
+      }
+  },
   mounted(){
       this.getUserInfo()
   },
   methods:{
       async getUserInfo(){
-          const res = await this.$http.get('/user' + localStorage.getItem('id'))
-          console.log(res)
+          const res = await this.$http.get('/user/' + localStorage.getItem('id'),{
+            //   设置请求头 Bearer (后端有空格)
+              headers:{
+                  'Authorization' : 'Bearer ' + localStorage.getItem('token')
+              }
+              
+          })
+          console.log(res);
+          
+          this.model = res.data[0]
       }
   }
 }

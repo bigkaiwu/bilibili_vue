@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Register from '@/views/Register.vue'
 import Login from '@/views/Login.vue'
+import Userinfo from '@/views/Userinfo'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ Vue.use(VueRouter)
       path: '/login',
       name: 'Login',
       component: Login
+  },
+  {
+    path: '/userinfo',
+    name: 'Userinfo',
+    component: Userinfo
   }
   // {
   //   path: '/about',

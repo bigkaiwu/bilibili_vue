@@ -13,10 +13,10 @@
             </template>
         </van-cell>
 
-    <van-field v-model="model.name" type="text" label="昵称" input-align="right" />
-    <van-field v-model="model.username" type="text" label="账号" input-align="right"/>
-    <van-field v-model="model.gender" type="text" label="性别" input-align="right"/>
-    <van-field v-model="model.user_desc" type="text" label="个性签名" input-align="right" />
+    <van-field v-model="model.name" type="text" label="昵称" @blur="saveInfo" input-align="right" />
+    <van-field v-model="model.username" type="text" label="账号" @blur="saveInfo"  input-align="right"/>
+    <van-field v-model="model.gender" type="text" label="性别" @blur="saveInfo"  input-align="right"/>
+    <van-field v-model="model.user_desc" type="text" label="个性签名" @blur="saveInfo"  input-align="right" />
   </div>
 </template>
 
@@ -42,6 +42,15 @@ export default {
           formdata.append('file',file.file)
           const res = await this.$http.post('/upload/',formdata)
           this.model.user_img = res.data.url
+          this.userUpdate()
+      },
+      async userUpdate(){
+          const res = await this.$http.post('/update/' + localStorage.getItem('id'),this.model)
+          console.log(res)
+      },
+    //   失去焦点时更新
+      async saveInfo(){
+          this.userUpdate()
       }
   }
 }

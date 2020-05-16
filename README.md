@@ -1,29 +1,47 @@
-# bilibili_vue版本
+# bilibili
+最新B站移动端vue版本 2020-05
 
-+ 登录注册页顶部导航封装
-+ 登录注册页输入框封装
-+ 登录注册页按钮封装并获取输入值
-+ 发送注册请求
+技术栈
+vue + vuex + vue-router + ES6/7 + scss + flex + vant
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
+
+关于接口数据
+
+http://112.74.99.5:3000/web/api
+
+
+
+目标功能
+- [x] 登录功能 -- 完成
+- [x] 注册功能 -- 完成
+- [x] 权限验证 -- 完成
+- [x] 筛选分类 -- 完成
+- [x] 上传头像 -- 完成
+- [x] 编辑个人信息 -- 完成
+- [x] 下拉加载 -- 完成
+- [x] 视频播放 -- 完成
+- [x] 推荐文章 -- 完成
+- [x] 收藏文章 -- 完成
+- [x] 关注用户 -- 完成
+- [ ] 搜索文章 -- 未完成
+- [x] 盖楼评论 -- 完成
+- [x] 发表评论 -- 完成
+- [ ] 搜索记录 -- 未完成
+- [x] 用户自己选择栏目 -- 完成
+- [ ] 开通大会员 -- 未完成
+- [ ] 投稿 -- 未完成
+
+
+
+项目运行
+
+cd bilibili
+
+npm install 或 yarn(推荐)
+
 npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+

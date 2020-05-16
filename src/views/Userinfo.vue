@@ -29,15 +29,7 @@ export default {
   },
   methods:{
       async getUserInfo(){
-          const res = await this.$http.get('/user/' + localStorage.getItem('id'),{
-            //   设置请求头 Bearer (后端有空格)
-              headers:{
-                  'Authorization' : 'Bearer ' + localStorage.getItem('token')
-              }
-              
-          })
-          console.log(res);
-          
+          const res = await this.$http.get('/user/' + localStorage.getItem('id'))
           this.model = res.data[0]
       }
   }

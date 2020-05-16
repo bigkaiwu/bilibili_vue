@@ -87,13 +87,11 @@ export default {
   }
   > div:nth-child(2){
       h2{
-          padding:10px 0 5px 0;
           font-weight: 300;
       }
       p{
           padding:0;
           color: #999;
-          margin: 5px 0;
       }
   }
 }

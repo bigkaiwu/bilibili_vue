@@ -60,6 +60,12 @@ export default {
           if(rulg.test(this.model.name) && rulg.test(this.model.username) && rulg.test(this.model.password)){
             const res = await this.$http.post('/register',this.model)
             this.$msg.fail(res.data.msg)
+            // 获取id和token
+            localStorage.setItem('id',res.data.id);
+            localStorage.setItem('token',res.data.objtoken)
+            setTimeout(() => {
+              this.$router.push('./userinfo')
+            }, 1000);
           }else{
               this.$msg.fail('输入的格式不正确，请重新输入')
           }

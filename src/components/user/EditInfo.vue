@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-<div class="edit_info">
+    <div class="edit_info">
         <van-cell title="头像">
             <van-uploader :after-read="afterRead" />
             <template #right-icon>
@@ -17,6 +17,8 @@
     <van-field v-model="model.username" type="text" label="账号" @blur="saveInfo"  input-align="right"/>
     <van-field v-model="model.gender" type="text" label="性别" @blur="saveInfo"  input-align="right"/>
     <van-field v-model="model.user_desc" type="text" label="个性签名" @blur="saveInfo"  input-align="right" />
+
+    <van-button color="#fb7a9f" class="mt20" plain block @click="$router.back()">返回个人中心</van-button>
   </div>
 </template>
 
@@ -57,4 +59,7 @@ export default {
 
 </script>
 <style lang="scss" scoped>
+.mt20{
+    margin-top:20px ;
+}
 </style>

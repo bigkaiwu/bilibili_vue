@@ -1,9 +1,9 @@
-# bilibili
+# bilibili_vue
 
 ### 最新B站移动端vue版本 2020-05
 
 技术栈
-vue + vuex + vue-router + ES6/7 + scss + flex + vant
+vue + vuex + vue-router + axios + ES6/7 + scss + flex + vant
 
 关于接口数据 http://112.74.99.5:3000/web/api 
 

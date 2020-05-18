@@ -6,15 +6,16 @@ import Register from '@/views/Register.vue'
 import Login from '@/views/Login.vue'
 import Userinfo from '@/views/Userinfo'
 import Edit from '@/views/Edit'
+import Video from '@/components/list/Video'
 
 Vue.use(VueRouter)
 
-  const routes = [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
   {
     path: '/register',
     name: 'Register',
@@ -40,7 +41,12 @@ Vue.use(VueRouter)
     meta: {
       istoken: true
     }
-  }
+  },
+  {
+    path: '/video/:id',
+    name: 'Video',
+    component: Video
+  },
   // {
   //   path: '/about',
   //   name: 'About',

@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div @click="$eouter.push('/detail/'+detail.id+'')">
+  <div @click="pathPush" v-if="detailitem">
       <div class="detailitem">
           <img :src="detailitem.img" alt="" style="width:100%">
           <p>{{ detailitem.name }}</p>
@@ -10,7 +10,14 @@
 
 <script>
 export default {
-  props:['detailitem']
+  props:['detailitem'],
+    methods:{
+        pathPush() {
+            if(this.$route.path != `/video/${this.detailitem.id}`) {
+                this.$router.push(`/video/${this.detailitem.id}`)
+            }
+        }
+    }
 }
 
 </script>

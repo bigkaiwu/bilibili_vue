@@ -1,7 +1,7 @@
 <!--  -->
 <template>
   <div class="m_navbar">
-      <div class="logo">
+      <div class="logo" @click="$router.push('/')">
           <img src="@/assets/logo.png" alt="">
       </div>
       <div>
@@ -11,7 +11,7 @@
           </p>
       </div>
       <div>
-          <img src="@/assets/default_img.jpg" alt="">
+          <img @click="$router.push('/userinfo')" src="@/assets/default_img.jpg" alt="">
           <p>下载App</p>
       </div>
   </div>
